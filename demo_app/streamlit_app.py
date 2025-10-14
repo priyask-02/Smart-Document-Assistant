@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Add the parent directory to Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 import streamlit as st
 from src.rag_pipeline import RAGPipeline
 
