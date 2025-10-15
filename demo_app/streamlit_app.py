@@ -1,6 +1,8 @@
 import sys
 import os
 
+# Rebuild trigger on 2025-10-15
+
 # Add the parent directory to Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
