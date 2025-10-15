@@ -1,10 +1,11 @@
-from langchain.vectorstores import Chroma
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
-from utils import parse_pdf, parse_docx
+#from utils import parse_pdf, parse_docx
+from src.utils import parse_pdf, parse_docx
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.llms import OpenAI
 
 class RAGPipeline:
     def __init__(self, openai_api_key=None, chunk_size=1000, chunk_overlap=100):
