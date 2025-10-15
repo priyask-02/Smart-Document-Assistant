@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore", message="missing ScriptRunContext")
 import streamlit as st
 from src.rag_pipeline import RAGPipeline
 import tempfile
-
+import os
 
 st.title("Smart Document Q&A Assistant")
 
@@ -22,16 +22,16 @@ query = st.text_input("Ask your question:")
 
 if uploaded_files:
     temp_dir = tempfile.mkdtemp()
-    file_paths = []
     for uploaded_file in uploaded_files:
         path = os.path.join(temp_dir, uploaded_file.name)
         with open(path, "wb") as f:
             f.write(uploaded_file.getbuffer())
-        file_paths.append(path)
-    
     pipeline.load_documents(temp_dir)
-    st.success(f"Loaded {len(file_paths)} documents!")
+    st.success(f"Loaded {len(uploaded_files)} documents!")
 
 if st.button("Get Answer") and query:
-    answer = pipeline.answer_query(query)
-    st.write("Answer:", answer)
+    answer, sources = pipeline.answer_query(query)
+    st.subheader("Answer:")
+    st.write(answer)
+    st.subheader("Source Documents:")
+    st.write(", ".join(set(sources)))  # show unique filenames
