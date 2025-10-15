@@ -1,4 +1,4 @@
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import Chroma
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
@@ -43,7 +43,8 @@ class RAGPipeline:
             raise ValueError("No PDF or DOCX documents found in folder.")
 
         # Create FAISS vector store with metadata
-        self.index = FAISS.from_texts(all_texts, self.embeddings, metadatas=metadata)
+        #self.index = FAISS.from_texts(all_texts, self.embeddings, metadatas=metadata)
+        self.index = Chroma.from_texts(all_texts, self.embeddings, metadatas=metadata)
 
         # Set up RetrievalQA chain
         self.qa_chain = RetrievalQA.from_chain_type(
