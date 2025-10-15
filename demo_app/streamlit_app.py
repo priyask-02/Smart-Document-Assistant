@@ -35,3 +35,5 @@ if st.button("Get Answer") and query:
     st.write(answer)
     st.subheader("Source Documents:")
     st.write(", ".join(set(sources)))  # show unique filenames
+
+answer, sources = pipeline.answer_query(query)
