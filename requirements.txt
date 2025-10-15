@@ -1,6 +1,6 @@
 langchain
 openai
-faiss-cpu
+chromadb
 pandas
 numpy
 PyPDF2
