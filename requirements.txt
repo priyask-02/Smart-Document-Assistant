@@ -6,3 +6,4 @@ numpy
 PyPDF2
 python-docx
 streamlit
+tiktoken
