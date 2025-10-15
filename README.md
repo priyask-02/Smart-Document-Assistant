@@ -10,3 +10,4 @@ A Streamlit-based application that allows users to upload PDF and DOCX documents
 - Real-time interactive UI powered by Streamlit
 - Handles multiple documents in a single session
 
+https://smart-document-assistant-x9q2c5ww4lv9pqtqhuwmji.streamlit.app/
