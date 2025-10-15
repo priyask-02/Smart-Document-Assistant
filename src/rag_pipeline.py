@@ -62,8 +62,13 @@ class RAGPipeline:
 
     def answer_query(self, query):
         if not self.qa_chain:
-            return "No documents loaded yet."
-        result = self.qa_chain({"query": query})
-        answer = result["result"]
-        sources = [doc.metadata["source"] for doc in result["source_documents"]]
-        return answer, sources
+            return "The model is not initialized yet.", []
+    
+        result = self.qa_chain.invoke(query)
+
+        answer = result["result"] if "result" in result else result
+        sources = []
+        if "source_documents" in result:
+            sources = [doc.metadata.get("source", "Unknown") for doc in result["source_documents"]]
+
+        return answer, sources  # ✅ exactly two items
