@@ -14,16 +14,3 @@ A Streamlit-based application that allows users to upload PDF and DOCX documents
 - Real-time interactive UI powered by Streamlit
 - Handles multiple documents in a single session
 
-## 🗂 Project Structure
-Smart-Document-Assistant/
-├─ demo_app/
-│  └─ streamlit_app.py
-├─ src/
-│  ├─ rag_pipeline.py
-│  └─ utils.py
-├─ data/
-│  └─ .gitkeep
-├─ docs/
-│  └─ .gitkeep
-├─ requirements.txt
-└─ README.md
