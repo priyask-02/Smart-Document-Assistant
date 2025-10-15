@@ -1,4 +1,4 @@
-from langchain_community.vectorstores import Chroma
+from langchain.vectorstores import Chroma
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
