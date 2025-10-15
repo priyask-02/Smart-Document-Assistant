@@ -1,10 +1,6 @@
 # Smart-Document-Assistant
 Generative AI Project for RAG to documents
 
-
-https://priyask-02-smart-document-assistant.streamlit.app
-
-
 A Streamlit-based application that allows users to upload PDF and DOCX documents and ask questions. Powered by **LangChain**, **OpenAI embeddings**, and a **RAG (Retrieval-Augmented Generation) pipeline**.
 
 ## 🌟 Features
