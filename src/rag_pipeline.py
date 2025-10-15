@@ -7,10 +7,16 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.llms import OpenAI
 
+import streamlit as st
+key = st.secrets["OPENAI_API_KEY"]
+
 class RAGPipeline:
-    def __init__(self, openai_api_key=None, chunk_size=1000, chunk_overlap=100):
-        self.documents = []   # list of dicts: {"text":..., "source":...}
-        self.embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key or os.getenv("OPENAI_API_KEY"))
+    def __init__(self, openai_api_key=None, chunk_size=1000, chunk_overlap=200):
+        self.api_key = openai_api_key or os.getenv("OPENAI_API_KEY")
+        if not self.api_key:
+            raise ValueError("Missing OpenAI API key. Please set it as OPENAI_API_KEY.")
+        
+        self.embeddings = OpenAIEmbeddings(openai_api_key=self.api_key)
         self.index = None
         self.qa_chain = None
         self.chunk_size = chunk_size
