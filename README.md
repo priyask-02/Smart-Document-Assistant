@@ -11,3 +11,19 @@ A Streamlit-based application that allows users to upload PDF and DOCX documents
 - Handles multiple documents in a single session
 
 https://smart-document-assistant-x9q2c5ww4lv9pqtqhuwmji.streamlit.app/
+
+🧩 How It Works
+
+1.Upload documents → PDFs or DOCX are split into chunks.
+2.Chunks embedded using OpenAI embeddings.
+3.Embeddings stored in Chroma vector store.
+4.Ask a question → RAG pipeline retrieves relevant chunks.
+5.Answers displayed with sources in the Streamlit interface.
+
+🙋 My Contributions
+
+-Built RAG pipeline with LangChain & OpenAI embeddings
+-Developed interactive Streamlit interface
+-Handled PDF & DOCX parsing, chunking, source tracking
+-Configured Streamlit Cloud deployment & secrets management
+-Created a reproducible environment with requirements.txt
